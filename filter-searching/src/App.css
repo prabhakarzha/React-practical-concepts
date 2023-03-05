@@ -1,0 +1,25 @@
+.list {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.list input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  border-bottom: 1px solid #ccc;
+  padding: 12px;
+  font-size: 14px;
+}
