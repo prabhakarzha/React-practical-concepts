@@ -11,3 +11,4 @@ const CardDetail = ({ data }) => {
 };
 
 export default CardDetail;
+

@@ -1,21 +1,43 @@
-import "./App.css";
-import Cards from "./components/Cards";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import CardDetail from "./components/CardDetail";
-import { useState } from "react";
-import data from "./value.json";
-console.log(data);
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import PopUp from "./components/PopUp";
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<Cards data={data} />} />
+  const [showButtons, setShowButtons] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [isFolderClicked, setIsFolderClicked] = useState(false);
 
-        <Route path="/:id" element={<CardDetail data={data} />} />
-      </Routes>
-    </BrowserRouter>
+  const handleClick = () => {
+    setShowButtons(true);
+  };
+
+  const handleButtonClick = (buttonType) => {
+    if (buttonType === "Folder") {
+      setShowPopup(true);
+      setIsFolderClicked(true);
+    }
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+    setIsFolderClicked(false);
+  };
+
+  return (
+    <div>
+      <h1>Testing Button </h1>
+      <Button onClick={handleClick}>Link</Button>
+      <br />
+      {showButtons && (
+        <div>
+          <Button onClick={() => handleButtonClick("Content")}>Content</Button>
+          <br />
+          <Button onClick={() => handleButtonClick("Folder")}>Folder</Button>
+        </div>
+      )}
+
+      <PopUp showPopup={showPopup} closePopup={closePopup} />
+    </div>
   );
 };
 

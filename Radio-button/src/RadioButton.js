@@ -1,26 +1,56 @@
 import React, { useState } from "react";
 
-const RadioButton = () => {
-  const [checked, setChecked] = useState();
+function RadioButton() {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const handleOptionChange = (event) => {
+    const selectedOption = event.target.value;
+    let newSelectedOptions = [...selectedOption];
+    console.log(newSelectedOptions);
+    if (newSelectedOptions.includes(selectedOption)) {
+      newSelectedOptions = newSelectedOptions.filter(
+        (option) => option !== selectedOption
+      );
+    } else {
+      newSelectedOptions.push(selectedOption);
+      console.log(newSelectedOptions);
+    }
+    setSelectedOptions(newSelectedOptions);
+  };
 
   return (
     <div>
-      <h1>radioButton</h1>
+      <label>
+        <input
+          type="radio"
+          value="sonu"
+          checked={selectedOptions.includes("sonu")}
+          onChange={handleOptionChange}
+        />
+        Option 1
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="vikash"
+          checked={selectedOptions.includes("vikash")}
+          onChange={handleOptionChange}
+        />
+        Option 2
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="kohli"
+          checked={selectedOptions.includes("kohli")}
+          onChange={handleOptionChange}
+        />
+        Option 3
+      </label>
 
-      <input
-        name="checked"
-        type="radio"
-        value="yes"
-        onChange={(e) => setChecked(e.target.value)}
-      />
-      <input
-        type="radio"
-        name="checked"
-        value="no"
-        onChange={(e) => setChecked(e.target.value)}
-      />
+      <p>Selected Options: {selectedOptions.join(", ")}</p>
     </div>
   );
-};
+}
 
 export default RadioButton;
