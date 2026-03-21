@@ -2,6 +2,7 @@ import "./App.css";
 import { Users } from "./users";
 import { useState } from "react";
 import Table from "./Table";
+import Todo from "./Todo";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -13,7 +14,7 @@ function App() {
 
   const search = (data) => {
     return data.filter(
-      (item) => keys.some((key) => item[key].toLowerCase().includes(query))
+      (item) => keys.some((key) => item[key].toLowerCase().includes(query)),
       // alternate way to searching
       // item.first_name.toLowerCase().includes(query) ||
       // item.last_name.toLowerCase().includes(query) ||
@@ -23,14 +24,17 @@ function App() {
 
   return (
     <div className="App">
-      <input
+      <Todo />
+      <br />
+      <br />
+      {/* <input
         type="text"
         placeholder="search..."
         className="search"
         // onChange={(e) => setQuery(e.target.value)}
         onChange={handleChange}
       />
-      <Table data={search(Users)} />
+      <Table data={search(Users)} /> */}
     </div>
   );
 }

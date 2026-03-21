@@ -1,0 +1,21 @@
+.Container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for responsive layout */
+  margin: 10px;
+  padding: 10px;
+  justify-content: center; /* Center the images */
+}
+
+.image-style {
+  width: 300px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin: 10px; /* Add spacing between images */
+  border: 2px solid #ccc; /* Add a border around images */
+  border-radius: 10px; /* Rounded corners */
+  transition: transform 0.2s; /* Smooth hover effect */
+  border: 1px solid;
+}
+
+.image-style:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
